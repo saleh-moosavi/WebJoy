@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>WebJoy | Joystick Over Web</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>WebJoy</h2>
+
+      <div class="card">
+        <h3>Connection Settings</h3>
+        <div class="input-group">
+          <div class="input-row">
+            <label>Port:</label>
+            <input
+              type="number"
+              id="serverPort"
+              placeholder="Port"
+              value="8765"
+            />
+            <div class="button-group">
+              <button id="connectBtn" class="btn-primary">Connect</button>
+              <button id="disconnectBtn" class="btn-secondary" disabled>
+                Disconnect
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="wsStatus" class="status pending">
+          <span class="status-indicator"></span>Not connected
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Physical Gamepad Status</h3>
+        <div id="gamepadStatus" class="status disconnected">
+          <span class="status-indicator"></span>No gamepad detected
+        </div>
+        <div class="gamepad-info">
+          <div>
+            <strong>Gamepad Name:</strong> <span id="gamepadId">-</span>
+          </div>
+          <div><strong>Axes Count:</strong> <span id="axesCount">0</span></div>
+          <div>
+            <strong>Buttons Count:</strong> <span id="buttonsCount">0</span>
+          </div>
+          <div>
+            <strong>Status:</strong>
+            <span id="connectionStatus">Waiting...</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Live Data</h3>
+        <div class="live-data">
+          <div><strong>Axes Values:</strong></div>
+          <div id="axesValues" class="axes-display">-</div>
+
+          <div style="margin-top: 15px"><strong>Pressed Buttons:</strong></div>
+          <div id="buttonsValues" class="buttons-display">-</div>
+
+          <div style="margin-top: 15px">
+            <strong>Trigger Values (LT/RT):</strong>
+          </div>
+          <div class="trigger-values">
+            <span>LT: <span id="ltValue">0.00</span></span>
+            <span>RT: <span id="rtValue">0.00</span></span>
+          </div>
+
+          <div style="margin-top: 15px">
+            <strong>Send Status:</strong>
+            <span id="sendStatus">Waiting for connection...</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Instructions</h3>
+        <div class="instructions">
+          <p>
+            1. Connect your gamepad (Xbox/PlayStation/Generic) to your computer
+          </p>
+          <p>2. Click anywhere on the page to activate gamepad support</p>
+          <p>3. Connect to Host</p>
+          <p>4. Start playing! Data is sent at 60 frames per second</p>
+          <p class="note">
+            Note: You may need to press any button once for browser permission
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
