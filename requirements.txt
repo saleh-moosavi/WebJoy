@@ -1,0 +1,6 @@
+# WebJoy Server - WebSocket Gamepad Server
+# You Need ViGEmBus Driver To Run
+# Download From : https://github.com/nefarius/ViGEmBus/releases
+
+vgamepad>=0.3.0
+websockets>=13.0
